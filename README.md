@@ -1,11 +1,13 @@
-# gatsby-plugin-tealium-utag
+# gatsby-plugin-tealium-utag-self-hosted
 
-This plugin inserts [Tealium's utag](https://docs.tealium.com/platforms/javascript/install/#universal-tag-utag-js) to the `<body>` of Gatsby pages.
+This plugin inserts [Tealium's utag](https://docs.tealium.com/platforms/javascript/install/#universal-tag-utag-js) to the `<body>` of Gatsby pages.  Since Tealium can be [self hosted](https://community.tealiumiq.com/t5/iQ-Tag-Management/Self-Hosting-utag-js/ta-p/10135), this plugin assumes a full url is provided for scripts.
+
+Forked from [https://github.com/moroshko/gatsby-plugin-tealium-utag](https://github.com/moroshko/gatsby-plugin-tealium-utag)
 
 ## Install
 
 ```shell
-npm install --save gatsby-plugin-tealium-utag
+npm install --save gatsby-plugin-tealium-utag-self-hosted
 ```
 
 ## How to use
@@ -15,12 +17,10 @@ npm install --save gatsby-plugin-tealium-utag
 module.exports = {
   plugins: [
     {
-      resolve: "gatsby-plugin-tealium-utag",
+      resolve: "gatsby-plugin-tealium-utag-self-hosted",
       options: {
-        account: "YOUR_TEALIUM_ACCOUNT",
-        profile: "YOUR_TEALIUM_PROFILE",
-        env: "dev",
-        injectUtagSync: true,
+        utagUrl: "YOUR_SELF_HOSTED_TEALIUM_SCRIPT",
+        utagUrl: "YOUR_SELF_HOSTED_TEALIUM_SCRIPT",
         disableInitialTracking: true
       }
     }
@@ -30,25 +30,15 @@ module.exports = {
 
 ## Required Options
 
-### `account`
+### `utagUrl`
 
-Your Tealium account name.
-
-### `profile`
-
-Your Tealium profile name.
-
-### `env`
-
-Must be `"dev"`, `"qa"`, or `"prod"`.
+Tealium can be [self hosted](https://community.tealiumiq.com/t5/iQ-Tag-Management/Self-Hosting-utag-js/ta-p/10135).  .
 
 ## Optional Options
 
-### `injectUtagSync`
+### `utagSyncUrl`
 
-Defaults to `false`.
-
-When set to `true`, [`utag.sync.js`](https://community.tealiumiq.com/t5/iQ-Tag-Management/Using-the-utag-sync-js-Script/ta-p/19175#toc-hId-1329434506) will be injected to the `<head>`.
+Tealium can be [self hosted](https://community.tealiumiq.com/t5/iQ-Tag-Management/Self-Hosting-utag-js/ta-p/10135).  .
 
 ### `disableInitialTracking`
 
